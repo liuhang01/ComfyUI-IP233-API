@@ -1,0 +1,216 @@
+{
+  "last_node_id": 4,
+  "last_link_id": 4,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "IP233Config",
+      "pos": [
+        40,
+        80
+      ],
+      "size": [
+        330,
+        240
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "config",
+          "type": "IP233_CONFIG",
+          "links": [
+            1,
+            2
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "IP233Config"
+      },
+      "widgets_values": [
+        "https://api-new.ip233.com/v1",
+        "https://new.ip233.com/api/pricing",
+        120,
+        ""
+      ]
+    },
+    {
+      "id": 2,
+      "type": "IP233ImageSubmit",
+      "pos": [
+        430,
+        80
+      ],
+      "size": [
+        330,
+        420
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "config",
+          "type": "IP233_CONFIG",
+          "link": 1
+        },
+        {
+          "name": "reference_images",
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "task",
+          "type": "IP233_TASK",
+          "links": [
+            3
+          ]
+        },
+        {
+          "name": "task_id",
+          "type": "STRING",
+          "links": []
+        },
+        {
+          "name": "response_json",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "IP233ImageSubmit"
+      },
+      "widgets_values": [
+        "gpt-image-2.6",
+        "Change the background to a green studio wall",
+        0,
+        "edit",
+        "{}",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 3,
+      "type": "IP233ImageResult",
+      "pos": [
+        830,
+        80
+      ],
+      "size": [
+        330,
+        240
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "config",
+          "type": "IP233_CONFIG",
+          "link": 2
+        },
+        {
+          "name": "task",
+          "type": "IP233_TASK",
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            4
+          ]
+        },
+        {
+          "name": "masks",
+          "type": "MASK",
+          "links": []
+        },
+        {
+          "name": "saved_paths_json",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "IP233ImageResult"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 4,
+      "type": "SaveImage",
+      "pos": [
+        1230,
+        80
+      ],
+      "size": [
+        330,
+        240
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 4
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "IP233/image"
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      2,
+      0,
+      "IP233_CONFIG"
+    ],
+    [
+      2,
+      1,
+      0,
+      3,
+      0,
+      "IP233_CONFIG"
+    ],
+    [
+      3,
+      2,
+      0,
+      3,
+      1,
+      "IP233_TASK"
+    ],
+    [
+      4,
+      3,
+      0,
+      4,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {},
+  "version": 0.4
+}

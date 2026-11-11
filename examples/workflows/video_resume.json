@@ -1,0 +1,157 @@
+{
+  "last_node_id": 3,
+  "last_link_id": 3,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "IP233Config",
+      "pos": [
+        40,
+        80
+      ],
+      "size": [
+        330,
+        240
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "config",
+          "type": "IP233_CONFIG",
+          "links": [
+            1,
+            2
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "IP233Config"
+      },
+      "widgets_values": [
+        "https://api-new.ip233.com/v1",
+        "https://new.ip233.com/api/pricing",
+        120,
+        ""
+      ]
+    },
+    {
+      "id": 2,
+      "type": "IP233ResumeTask",
+      "pos": [
+        430,
+        80
+      ],
+      "size": [
+        330,
+        240
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "config",
+          "type": "IP233_CONFIG",
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "task",
+          "type": "IP233_TASK",
+          "links": [
+            3
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "IP233ResumeTask"
+      },
+      "widgets_values": [
+        "video",
+        ""
+      ]
+    },
+    {
+      "id": 3,
+      "type": "IP233VideoResult",
+      "pos": [
+        830,
+        80
+      ],
+      "size": [
+        330,
+        240
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "config",
+          "type": "IP233_CONFIG",
+          "link": 2
+        },
+        {
+          "name": "task",
+          "type": "IP233_TASK",
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "links": []
+        },
+        {
+          "name": "saved_path",
+          "type": "STRING",
+          "links": []
+        },
+        {
+          "name": "video_url",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "IP233VideoResult"
+      },
+      "widgets_values": []
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      2,
+      0,
+      "IP233_CONFIG"
+    ],
+    [
+      2,
+      1,
+      0,
+      3,
+      0,
+      "IP233_CONFIG"
+    ],
+    [
+      3,
+      2,
+      0,
+      3,
+      1,
+      "IP233_TASK"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {},
+  "version": 0.4
+}

@@ -1,0 +1,8 @@
+The design was informed by the public ComfyUI-Tikpan-Pro node collection:
+https://github.com/htrert/ComfyUI-Tikpan-Pro
+Reference inspected: f202fb35e8456921d7307d942aca197c26e0f158.
+
+This package is an independent implementation of the IP233 public API.
+It does not copy Tikpan source code, branding, or publisher credentials.
+The bundled model metadata is derived from IP233's public model catalog,
+https://new.ip233.com/api/pricing, inspected on 2026-11-10.

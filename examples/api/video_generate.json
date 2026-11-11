@@ -1,0 +1,40 @@
+{
+  "1": {
+    "class_type": "IP233Config",
+    "inputs": {
+      "base_url": "https://api-new.ip233.com/v1",
+      "catalog_url": "https://new.ip233.com/api/pricing",
+      "request_timeout": 120,
+      "api_key": ""
+    }
+  },
+  "2": {
+    "class_type": "IP233VideoSubmit",
+    "inputs": {
+      "model": "seedance2.0-A1",
+      "prompt": "A sailboat on a calm sea at sunrise, slow forward camera movement",
+      "request_nonce": 0,
+      "parameters_json": "{}",
+      "reference_urls": "",
+      "custom_model": "",
+      "operation_key": "",
+      "config": [
+        "1",
+        0
+      ]
+    }
+  },
+  "3": {
+    "class_type": "IP233VideoResult",
+    "inputs": {
+      "config": [
+        "1",
+        0
+      ],
+      "task": [
+        "2",
+        0
+      ]
+    }
+  }
+}

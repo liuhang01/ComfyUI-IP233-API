@@ -1,0 +1,36 @@
+[project]
+name = "ip233-ai-nodes"
+description = "ComfyUI image and video generation, editing, and resumable tasks for IP233 Media API."
+version = "0.1.0"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+readme = "README.md"
+dependencies = ["requests>=2.31.0,<3", "Pillow>=10.0.0", "numpy>=1.24.0"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "build", "tomlkit>=0.13"]
+
+[project.urls]
+Homepage = "https://new.ip233.com/"
+Documentation = "https://new.ip233.com/docs/models"
+# tools/prepare_release.py adds Repository after the real public repository exists.
+Repository = "https://github.com/liuhang01/ComfyUI-IP233-API"
+
+[tool.comfy]
+DisplayName = "IP233 Image and Video"
+Icon = ""
+# tools/prepare_release.py adds the user's registered PublisherId.
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["ip233*"]
+
+[tool.setuptools.package-data]
+ip233 = ["catalog.snapshot.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --confcutdir=tests"
